@@ -1,0 +1,35 @@
+{% extends "Blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="content">
+        <h1 class="title">Данные пользователя</h1>
+        <div class="header-profile">
+            <div class="info-profile">
+                <img class="image-rounded" src="{{ profile_user.profile.image.url }}">
+                <p class="special-info-profile"> Ник пользователя: </p>
+                <b class="name-profile"> {{ user.username }} </b>
+                <br/>
+                <p class="special-info-profile"> EMAIL: </p>
+                <p class="email-profile"> {{ user.email }} </p>
+                <br/>
+                <p class="special-info-profile"> Имя: </p>
+                <p class="email-profile"> {{ user.first_name }} </p>
+                <br/>
+                <p class="special-info-profile"> Фамилия: </p>
+                <p class="email-profile"> {{ user.last_name }} </p>
+                <br/>
+                <p class="special-info-profile"> Телефон: </p>
+                <p class="email-profile"> {{ profile_user.profile.phonenumber }} </p>
+            </div>
+        </div>
+        {% if user == profile_user %}
+            <div class="update-profile-div">
+                <a class="submit-button" href="{% url 'edit-profile' %}"> Изменить профиль </a>
+            </div>
+            <br />
+            <div class="update-profile-div" id="logout">
+                <a class="delete-button" href="{% url 'logout' %}"> Выйти </a>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

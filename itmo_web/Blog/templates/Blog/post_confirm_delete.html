@@ -1,0 +1,15 @@
+{% extends "Blog/base.html"%}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="content">
+    <h1 class="title">УДАЛИТЬ ОБЪЯВЛЕНИЕ?</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <p>ВЫ УВЕРЕНЫ, ЧТО ХОТИТЕ УДАЛИТЬ ОБЪЯВЛЕНИЕ?</p>
+        <button class="delete-button" type="submit">
+                    Да, я уверен
+        </button>
+    </form>
+</div>
+
+{% endblock %}

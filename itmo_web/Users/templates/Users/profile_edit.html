@@ -1,0 +1,24 @@
+{% extends "Blog/base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+    <div class="input-section">
+        <div class="input-section-body">
+            <h2 class="title">Изменение личных данных</h2>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <h4>Телефон</h4>
+                {{p_form.phonenumber}}
+                <h4>Фамилия</h4>
+                {{ u_form.first_name }}
+                <h4>Имя</h4>
+                {{ u_form.last_name }}
+                <h4>Аватарка</h4>
+                {{p_form.image}}
+                <button class="submit-button" type="submit">
+                    Изменить
+                </button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

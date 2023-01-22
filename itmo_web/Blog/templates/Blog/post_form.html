@@ -1,0 +1,20 @@
+{% extends "Blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    {% load static %}
+    <div class="input-section">
+        <div class="input-section-body">
+            <h2 class="title">Создание поста</h2>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <h4>Ваш текст</h4>
+                {{ form.content }}
+                <h4>Изображение</h4>
+                {{ form.image }}
+                <button class="submit-button" type="submit">
+                    Опубликовать
+                </button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

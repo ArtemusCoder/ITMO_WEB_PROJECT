@@ -1,0 +1,31 @@
+{% extends "Blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    {% load static %}
+    <div class="input-section">
+        <div class="input-section-body">
+            <h2 class="title">Регистрация</h2>
+            <form method="POST">
+                {% csrf_token %}
+                <h4>Логин</h4>
+                {{ form.username }}
+                <h4>Почта</h4>
+                {{ form.email }}
+                <h4>Телефон</h4>
+                {{ form_profile.phonenumber }}
+                <h4>Фамилия</h4>
+                {{ form.first_name }}
+                <h4>Имя</h4>
+                {{ form.last_name }}
+                <h4>Пароль</h4>
+                {{ form.password1 }}
+                <h4>Пароль еще раз</h4>
+                {{ form.password2 }}
+                <button class="submit-button" type="submit">
+                    Зарегистрироваться
+                </button>
+                Уже есть аккаунт? <a href="{% url 'login' %}" style="text-decoration: none">Войти здесь</a>
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" media="(min-width:768px)" href="{% static 'Blog/style.css' %}" />
+    <link rel="stylesheet" media="(max-width:767px)" href="{% static 'Blog/style-small.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <title>Title</title>
+</head>
+<body>
+    <header>
+       <h1 id="nav-title"><a href="{% url 'home' %}">YASN</a></h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'about' %}">О проекте</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'post-create' %}">Выложить пост</a></li>
+                    <li><a href="{% url 'profile' user.username %}">Профиль</a></li>
+                {% else %}
+                    <li><a href="{% url 'register' %}">Зарегистрироваться</a></li>
+                    <li><a href="{% url 'login' %}">Войти</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    {% block content %} {% endblock %}
+</body>
+</html>

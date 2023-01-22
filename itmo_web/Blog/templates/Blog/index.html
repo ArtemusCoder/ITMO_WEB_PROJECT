@@ -1,0 +1,24 @@
+{% extends "Blog/base.html" %}
+{% block content %}
+    <div class="post-div">
+        {% for post in posts %}
+            <div class="card">
+                <div class="card-header">
+                    <a href="{% url 'post-detail' post.id %}"><img src="{{ post.image.url }}" alt="rover"/></a>
+                </div>
+                <div class="card-body">
+                    <p>
+                        {{ post.content|truncatechars:80 }}
+                    </p>
+                    <div class="user">
+                        <img src="{{ post.author.profile.image.url }}" alt="user"/>
+                        <div class="user-info">
+                            <h5>{{ post.author }}</h5>
+                            <small>{{ post.date_post|date:" d.m.Y" }}</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
