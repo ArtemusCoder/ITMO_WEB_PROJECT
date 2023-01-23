@@ -1,4 +1,7 @@
 {% extends "Blog/base.html" %}
+{% block header %}
+    <title> Главная страница </title>
+{% endblock %}
 {% block content %}
     <div class="post-div">
         {% for post in posts %}
