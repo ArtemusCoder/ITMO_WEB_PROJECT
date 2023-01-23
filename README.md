@@ -2,6 +2,8 @@
 
 ## Запуск проекта
 
+### Сборка локального Docker
+
 0) Установить Docker, Docker-compose (если нужно)
 
 1) Переходим в корневую папку и создаем новый образ и запускаем контейнеры командой:
@@ -17,6 +19,10 @@
 3) После создаем superuser, чтобы иметь доступ к Django admin
 
 <code>docker-compose exec web python manage.py createsuperuser</code>
+
+### Использование хостинга 
+
+[http://artemusitmo.pythonanywhere.com](http://artemusitmo.pythonanywhere.com)
 
 ## Проект
 <ul>
